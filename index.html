@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cartg</title>
-    <link rel="stylesheet" href="./css/ui.css">
+    <title>COLLECTIONS</title>
+    <link rel="stylesheet" href="./css/collections.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
@@ -30,88 +30,69 @@
           }
         }
       </script>
-      <script async src="./ui.js"></script>
+    
 </head>
 <body>
-    <!-- nav bar  -->
-    <nav class="w-[100%] h-1/2 bg-black py-5 flex items-center justify-center">
-   
-          <ul
-            class="flex flex-row space-x-10 text-white text-sm uppercase"
-          >
-            <li class="hover:text-blue-400 text-[15px] lg:text-[25px] hover:underline text-blue-400"><a href="./index.html">HOME</a></li>
-            <li class="hover:text-blue-400 text-[15px] lg:text-[25px] hover:underline"><a href="./collections.html">COLLECTIONS</a></li>
-            <li class="hover:text-blue-400 text-[15px] lg:text-[25px] hover:underline"><a href="./about.html">ABOUT</a></li>
-          </ul>
- 
-      </nav>
+    <nav class="w-[100%] h-1/2 bg-white opacity-80 mx-auto py-5 flex items-center justify-center sticky top-0 z-1">
+        <ul class="flex flex-row space-x-10 text-white text-sm uppercase">
+            
+            <li class="hover:text-blue-400 text-[15px] lg:text-[25px] hover:underline text-blue-600"><a href="./collections.html">Home</a></li>
+            <li class="hover:text-blue-400 text-[15px] lg:text-[25px] hover:underline text-zinc-600"><a href="/">About</a></li>
+            <li class="hover:text-blue-400 text-[15px] lg:text-[25px] hover:underline text-zinc-600"><a href="/">Help</a></li>
+        </ul>
+    </nav>
 
-      <div class="w-[100%] relative top-0">
-        <img src="./img/geometric-1732847__340.webp" alt="" class="w-[100%] h-[70vh]">
-      </div>
+    <div class="w-full h-[500px] bg-cover bg-center bg-no-repeat" style="background-image: url(./img/banner.jpg);">
+        <!-- <img src="./img/banner.jpg" alt="" class="w-[100%] h-[70vh]"> -->
+    </div>
 
-      <div class="text-[50px] w-[100%] text-white font-elite absolute top-[75px] text-center lg:text-[90px] font-bold">
-        <h1>Chima</h1>
-      </div>
 
-      <div class="w-[100%] flex justify-center align-center ">
-        <div class="absolute top-[150px] lg:top-[180px] bg-white pt-[40px] pb-[30px] pr-[180px] pl-[180px] w-[20%] opacity-50 rounded lg:w-30%"></div>
-      </div>
 
-        <button class="absolute top-[165px] lg:top-[195px] w-[100%] text-center text-[25px] font-sans font-bold"><h3>See Latest Arrivals</h3></button>
-      <!-- </div> -->
-        
-      <!-- play button icon -->
-        <div class="w-[100%] flex justify-center align-center ">
-            <button class="absolute top-[250px] lg:top-[280px] w-[10%] text-center bg-white pt-[30px] pb-[30px] pr-[35px] pl-[35px] flex justify-center align-center rounded-lg"><i class="fa fa-play fa-2xl"></i></button>
-        </div>
-
-      <!-- EVENTS -->
-      <div id="events" class="block ">
+    <div id="collections" class="block">
         <div class="font-elite text-center text-[40px] font-bold mt-[10px]">
-            <h2>Events</h2>
+            <h2>Collections</h2>
+        </div>
+    </div>
+
+<section class="product_section">
+
+</section>
+
+
+ 
+    <!-- Cart -->
+    <div id="carts" class="block mt-[70px]">
+        <div class="font-elite text-center text-[40px] font-bold mt-[10px]">
+            <h2>CARTS</h2>
         </div>
     
         <div id="wrapper" class="p-[10px] overflow-x-auto mt-[50px]">
             <table class="table">
-                <tbody>
-                    <tr>
-                        <td>January 28</td>
-                        <td>February 28</td>
-                        <td>March 28</td>
-                        <td><button id="btn-events" class="hover:opacity-40">Buy Ticket</button></td>
-                    </tr>
-                    <tr>
-                        <td>January 28</td>
-                        <td>February 28</td>
-                        <td>March 28</td>
-                        <td><button id="btn-events" class="hover:opacity-40">Buy Ticket</button></td>
-                    </tr>
-                    <tr>
-                        <td>January 28</td>
-                        <td>February 28</td>
-                        <td>March 28</td>
-                        <td><button id="btn-events" class="hover:opacity-40">Buy Ticket</button></td>
-                    </tr>
-                    <tr>
-                        <td>January 28</td>
-                        <td>February 28</td>
-                        <td>March 28</td>
-                        <td><button id="btn-events" class="hover:opacity-40">Buy Ticket</button></td>
-                    </tr>
-                    <tr>
-                        <td>January 28</td>
-                        <td>February 28</td>
-                        <td>March 28</td>
-                        <td><button id="btn-events" class="hover:opacity-40">Buy Ticket</button></td>
-                    </tr>
+             
+                    <thead>
+                        <th>ITEM</th>
+                        <th>PRICE</th>
+                        <th>QUANTITY</th>
+                    </thead>
+                    <tbody class="myItems">
+            
+     
                 </tbody>
             </table>
         </div>
-      </div>
+    </div>
 
-      <!-- footer -->
-      <footer class="bg-black p-[20px] mt-[100px]">
+    <!-- total -->
+    <div class="text-center mt-[40px] font-bold text-[22px]">
+        <div>Total: <span>&#8358</span><span class="totalItemPrice font-bold text-green-400 text-2xl"></span></div>
+        
+    </div>
+
+    <div class="flex justify-center items-center mt-[30px] font-bold text-[25px]">
+        <button class="purchaseMe bg-[#0000FF] text-white pr-[20px] pl-[20px] pt-[8px] pb-[8px] rounded hover:opacity-40">PURCHASE</button>
+    </div>
+    <!-- footer -->
+    <footer class="bg-black p-[20px] mt-[100px]">
         <div class="w-[100%] flex justify-center items-center">
             <div class="text-[20px] font-elite font-bold text-white lg:text-[50px] w-[50%] flex justify-center items-center">
                 <h1>Chima</h1>
@@ -123,6 +104,23 @@
                 <i class="fa fa-twitter lg:text-[30px]"></i>
             </div>
         </div>
-      </footer>
+    </footer>
+    <script async src="./js/collections.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
