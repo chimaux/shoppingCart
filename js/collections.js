@@ -274,14 +274,15 @@ console.log(itemName,"na chima")
         const myItems = document.querySelector(".myItems");
 
         //send styled values to the cart
+        
         let myItems1 = ``;
         for (let i = 0; i < myArray.length; i++) {
-          myItems1 += `                  <tr>
-          <td class="cartLine text-left border-b-[1px] border-zinc-200  w-[32%]"><div class=" p-2 w-[100px] overflow-hidden rounded"><img src="${myArray[i].image}" alt="" class="w-[80px] mr-[10px] h-[70px] overflow-hidden "></div><div class="w-[100px] md:w-[70%] ">${myArray[i].name}</div></td>
+          myItems1 += `                  <tr >
+          <td class="cartLine text-left border-b-[1px] border-zinc-200  w-[20%]"><div class=" p-2 w-[100px] overflow-hidden rounded"><img src="${myArray[i].image}" alt="" class="w-[80px] mr-[10px] h-[70px] overflow-hidden "></div><div class="w-[100px] md:w-[70%] ">${myArray[i].name.slice(0, 10) + "..."}</div></td>
       
-          <td class="cartPrice00 text-left w-[32%]">&#8358 ${myArray[i].priceIncrement}</td>
-          <td class="text-left sm: space-y-2    border-b-[1px] border-red-400 w-[32%]">
-              <input type="number"  data-item-name="${myArray[i].name}" value  = "${myArray[i].qty}" class="myNumberClass ml-3 bg-white w-[70px] text-center rounded pt-[3px] pb-[3px] text-black mr-[12px]">
+          <td class="cartPrice00 text-left w-[35%]">&#8358 ${myArray[i].priceIncrement}</td>
+          <td class="text-left sm: space-y-2    border-b-[1px] border-red-400 w-[35%]">
+              <input type="number"  data-item-name="${myArray[i].name}" value  = "${myArray[i].qty}" class="myNumberClass ml-3 bg-white w-[40px] text-center rounded pt-[3px] pb-[3px] text-black mr-[12px]">
               
               <i  data-item-name="${myArray[i].name}" class="removeCart fa-solid fa-trash cursor-pointer font-semi-bold ml-[5%] p-[3%]   text-red-800  bg-gray-100 rounded-full hover:text-red-600" ></i>
           </td>
