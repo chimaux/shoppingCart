@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="./css/collections.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/65e9ac7cab.js" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -23,34 +22,51 @@
                 clifford: '#da373d'
               },
               fontFamily: {
-                elite: ['Special Elite']
+                
               }
             
             }
           }
         }
       </script>
-    
+   <style>
+    @font-face {
+        src: url("./css/styles/Nexa-Trial-Regular.ttf");
+        font-family: rubikRegular;
+       
+    }
+    body{
+        font-family: rubikRegular;
+    }
+   </style>
 </head>
-<body>
-    <nav class="w-[100%] h-1/2 bg-white opacity-80 mx-auto py-5 flex items-center justify-center sticky top-0 z-1">
-        <ul class="flex flex-row space-x-10 text-white text-sm uppercase">
-            
-            <li class="hover:text-blue-400 text-[15px] lg:text-[25px] hover:underline text-blue-600"><a href="./collections.html">Home</a></li>
-            <li class="hover:text-blue-400 text-[15px] lg:text-[25px] hover:underline text-zinc-600"><a href="/">About</a></li>
-            <li class="hover:text-blue-400 text-[15px] lg:text-[25px] hover:underline text-zinc-600"><a href="/">Help</a></li>
+<body class="text-zinc-800 relative">
+
+    <nav class="menuBgMode bg-white my-auto w-[100%] h-1/2  opacity-80 py-2 flex md:items-center md:justify-end text-base md:text-lg lg:text-xl block    sticky top-0 z-1">
+        <!-- <ul class="px-6 md:flex md:flex-row md:space-x-10  "> -->
+          
+        <i class="chimaBurger px-6 md:hidden fa-solid fa-bars mb-4 mt-[7px]"></i>
+        
+        <ul class="myMenuBar hidden px-6 mb-4 space-y-4  md:space-x-4 md:space-y-0 md:mt-4 md:block">
+            <!--      -->
+            <li class="hover:text-blue-400 md:inline "><a href="./collections.html">Home</a></li>
+            <li class="hover:text-blue-400 md:inline"><a href="/">About</a></li>
+            <li class="hover:text-blue-400 md:inline"><a href="/">Help</a></li>
+            <li class="chimaMode hover:text-blue-400 md:inline cursor-pointer">Switch mode</li>
         </ul>
+        <p class=" ml-6 md:mr-4 text-green-600 font-bold tracking-widest"><span class="text-indigo-800 text-xl">Q</span>wamp[a]</p>
+     
     </nav>
 
-    <div class="w-full h-[500px] bg-cover bg-center bg-no-repeat" style="background-image: url(./img/banner.jpg);">
+    <div class="w-full h-[500px] bg-cover bg-center bg-no-repeat" style="background-image: url(./img/banner.png);">
         <!-- <img src="./img/banner.jpg" alt="" class="w-[100%] h-[70vh]"> -->
     </div>
 
 
 
     <div id="collections" class="block">
-        <div class="font-elite text-center text-[40px] font-bold mt-[10px]">
-            <h2>Collections</h2>
+        <div class="text-center text-[40px] font-bold my-8">
+            <h2 class="uppercase">Collections</h2>
         </div>
     </div>
 
@@ -61,18 +77,19 @@
 
  
     <!-- Cart -->
-    <div id="carts" class="block mt-[70px]">
-        <div class="font-elite text-center text-[40px] font-bold mt-[10px]">
-            <h2>CARTS</h2>
+    <div id="carts " class="overallCarts text-gray-600 block mt-[70px]">
+        <div class="
+        text-center text-[20px] font-bold mt-[10px]">
+            <h6 class="tracking-widest ">CART</h6>
         </div>
     
         <div id="wrapper" class="p-[10px] overflow-x-auto mt-[50px]">
             <table class="table">
              
-                    <thead>
-                        <th>ITEM</th>
-                        <th>PRICE</th>
-                        <th>QUANTITY</th>
+                    <thead >
+                        <th class="py-4">ITEM</th>
+                        <th class="py-4">PRICE</th>
+                        <th class="py-4">QUANTITY</th>
                     </thead>
                     <tbody class="myItems">
             
@@ -84,24 +101,26 @@
 
     <!-- total -->
     <div class="text-center mt-[40px] font-bold text-[22px]">
-        <div>Total: <span>&#8358</span><span class="totalItemPrice font-bold text-green-400 text-2xl"></span></div>
+        <div class="myTotal1 text-gray-600">Total: <span>&#8358 </span><span class="totalItemPrice font-bold  text-2xl"></span></div>
         
     </div>
 
-    <div class="flex justify-center items-center mt-[30px] font-bold text-[25px]">
-        <button class="purchaseMe bg-[#0000FF] text-white pr-[20px] pl-[20px] pt-[8px] pb-[8px] rounded hover:opacity-40">PURCHASE</button>
+    <div class="flex justify-center items-center mt-[30px] font-bold text-sm">
+        <button  class="purchaseMe bg-green-700 text-white py-2 px-4 rounded hover:bg-green-500 tracking-widest">PURCHASE</button>
     </div>
     <!-- footer -->
-    <footer class="bg-black p-[20px] mt-[100px]">
+    <footer class="bg-zinc-800 p-[20px] mt-[100px] ">
         <div class="w-[100%] flex justify-center items-center">
-            <div class="text-[20px] font-elite font-bold text-white lg:text-[50px] w-[50%] flex justify-center items-center">
-                <h1>Chima</h1>
+            <div class="font-bold  w-[50%] flex justify-start items-center">
+                <h6 class="text-zinc-500 tracking-widest">Chima</h6>
             </div>
     
-            <div style="color: #fff;" class="flex justify-center items-center space-x-4 w-[50%]">
-                <i class="fa fa-youtube-play lg:text-[30px]"></i>
-                <i class="fa fa-instagram lg:text-[30px]"></i>
-                <i class="fa fa-twitter lg:text-[30px]"></i>
+            <div  class="flex justify-end items-center space-x-4 w-[50%]">
+                <ul class="text-zinc-500 flex text-zinc-500">
+                  <li ><a href=""><i  class="fa fa-youtube-play hover:text-blue-400"></i></a></li>
+                  <li class="px-4"><a href=""><i class="fa fa-instagram hover:text-blue-400"></i></a></li>
+                  <li class="pr-4"><a href=""><i class="fa fa-twitter hover:text-blue-400"></i></a></li>
+                </ul>
             </div>
         </div>
     </footer>

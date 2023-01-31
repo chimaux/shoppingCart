@@ -40,116 +40,167 @@ function collect(info) {
   let p_values = ``;
   for (let i = 0; i < info.length; i++) {
     const k =1
-    p_values += ` <div  class="collection-items w-[90%] m-auto  md:flex md:m-auto md:justify-around md:space-x-2 ">
-   
-
-
-<div class="sm:flex sm:w-full sm: space-x-2">
-
-
-   
-<div  class=" h-[500px] rounded md:rounded-lg py-4 mb-4 md:w-[49%]" style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
-<div class="h-[400px] overflow-hidden">
-<div class="itemTitle font-elite text-center text-[20px] font-bold mt-[30px] h-[100px] overflow-hidden"><h3>${info[i].title}</h3></div>
-
-<div class="itemImage mt-[40px] h-[200px] w-[90%] m-auto overflow-hidden  flex justify-center">
-    <img class="w-[auto] h-[200px]" src="${info[i].image}">
-</div>
-</div>
-
-     <div class="w-[70%] m-auto flex justify-between items-center mt-[10px] py-4 ">
-         <div><span>&#8358</span><span class="itemPrice font-bold font-elite">${info[i].price}</span></div>
-         <button data-item-name="${info[i].title}" data-item-price="${info[i].price}" data-item-image="${info[i].image}"  class="addToCart font-semi-bold px-[15%] ml-[5%] py-[8px] text-white bg-green-800 rounded hover:bg-green-500" >BUY</button>
-     </div>
- </div>
+    p_values += 
+` 
 
 
 
-
- <div  class=" h-[500px] rounded md:rounded-lg py-4 mb-4 md:w-[49%]" style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
- <div class="h-[400px] overflow-hidden">
- <div class="itemTitle font-elite text-center text-[20px] font-bold mt-[30px] h-[100px] overflow-hidden"><h3>${info[i++].title}</h3></div>
-
- <div class="itemImage mt-[40px] h-[200px] w-[90%] m-auto overflow-hidden  flex justify-center">
-     <img class="w-[auto] h-[200px]" src="${info[i].image}">
- </div>
- </div>
-
-     <div class="w-[70%] m-auto flex justify-between items-center mt-[10px] py-4">
-         <div><span>&#8358</span><span class="itemPrice font-bold font-elite">${info[i].price}</span></div>
-         <button data-item-name="${info[i].title}" data-item-price="${info[i].price}" data-item-image="${info[i].image}"  class="addToCart font-semi-bold px-[15%] ml-[5%] py-[8px] text-white bg-green-800 rounded hover:bg-green-500" >BUY</button>
-     </div>
- </div>
+<div class="collection-items w-[90%] m-auto  md:flex md:m-auto md:justify-around md:space-x-2 ">
 
 
 
-
-
-</div>
-
+<div class="space-x-0 sm:flex sm:w-full sm:space-x-2">
 
 
 
+  <div class="cartTab  shadow-lg h-300px md:h-[500px] rounded sm:w-[49%] md:rounded-lg py-4 mb-4 md:w-[49%]">
+    <div class="h-[400px] overflow-hidden">
+      <div class="itemTitle  text-center text-[14px] px-4 mt-[30px] h-[100px] overflow-hidden">
+        <h4 class="myTitle11">${info[i].title}</h4>
+      </div>
+
+      <div class="itemImage mt-[40px] h-[200px] w-[90%] m-auto overflow-hidden  flex justify-center">
+        <img class="w-[auto] h-[200px] rounded-lg" src="${info[i].image}">
+      </div>
+    </div>
+  
+    <div class="w-[70%] m-auto flex justify-between items-center mt-[10px] py-4 ">
+      <div class="modePrice text-gray-600"><span>&#8358;&nbsp;</span><span class="itemPrice ">${info[i].price}</span></div>
+      
+      <i data-item-name="${info[i].title}" data-item-price="${info[i].price}"
+        data-item-image="${info[i].image}"
+        class="addToCart fa-solid fa-cart-plus cursor-pointer font-semi-bold ml-[5%] p-[5%] flex items-center justify-center  text-green-600  bg-gray-100 rounded-full hover:text-green-800"></i>
+    </div>
+  </div>
 
 
 
+  <div class="cartTab shadow-lg h-[500px] rounded sm:w-[49%] md:rounded-lg py-4 mb-4 md:w-[49%]">
+    <div class="h-[400px] overflow-hidden">
+      <div class="itemTitle  text-center text-[14px] px-4 mt-[30px] h-[100px] overflow-hidden">
+        <h4 class="myTitle11">${info[++i].title}</h4>
+      </div>
+
+      <div class="itemImage mt-[40px] h-[200px] w-[90%] m-auto overflow-hidden  flex justify-center">
+        <img class="w-[auto] h-[200px] rounded-lg" src="${info[i].image}">
+      </div>
+    </div>
+
+    <div class="w-[70%] m-auto flex justify-between items-center mt-[10px] py-4">
+      <div class="modePrice text-gray-600"><span>&#8358;&nbsp;</span><span class="itemPrice ">${info[i].price}</span></div>
+      <i data-item-name="${info[i].title}" data-item-price="${info[i].price}"
+        data-item-image="${info[i].image}"
+        class="addToCart fa-solid fa-cart-plus cursor-pointer font-semi-bold ml-[5%] p-[5%] flex items-center justify-center  text-green-600  bg-gray-100 rounded-full hover:text-green-800"></i>
+    </div>
+  </div>
 
 
 
-
-
-
-
-
-
-
-
- <div class="sm:flex sm:w-full sm: space-x-2">
- 
- 
- <div  class=" h-[500px] rounded md:rounded-lg py-4 mb-4 md:w-[49%]" style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
- <div class="h-[400px] overflow-hidden">
- <div class="itemTitle font-elite text-center text-[20px] font-bold mt-[30px] h-[100px] overflow-hidden"><h3>${info[i++].title}</h3></div>
-
- <div class="itemImage mt-[40px] h-[200px] w-[90%] m-auto overflow-hidden  flex justify-center">
-     <img class="w-[auto] h-[200px]" src="${info[i].image}">
- </div>
- </div>
-     <div class="w-[70%] m-auto flex justify-between items-center mt-[10px] py-4">
-         <div><span>&#8358</span><span class="itemPrice font-bold font-elite">${info[i].price}</span></div>
-         <button data-item-name="${info[i].title}" data-item-price="${info[i].price}" data-item-image="${info[i].image}"  class="addToCart font-semi-bold px-[15%] ml-[5%] py-[8px] text-white bg-green-800 rounded hover:bg-green-500" >BUY</button>
-     </div>
- </div>
-
-
-
-
-
- <div  class=" h-[500px] rounded md:rounded-lg py-4 mb-4 md:w-[49%]" style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
- <div class="h-[400px] overflow-hidden">
-<div class="itemTitle font-elite text-center text-[20px] font-bold mt-[30px] h-[100px] overflow-hidden"><h3>${info[i++].title}</h3></div>
-
-<div class="itemImage mt-[40px] h-[200px] w-[90%] m-auto overflow-hidden  flex justify-center">
-    <img class="w-[auto] h-[200px]" src="${info[i].image}">
-</div>
-</div>
-
-     <div class="w-[70%] m-auto flex justify-between items-center mt-[10px] py-4">
-         <div><span>&#8358</span><span class="itemPrice font-bold font-elite">${info[i].price}</span></div>
-         <button data-item-name="${info[i].title}" data-item-price="${info[i].price}" data-item-image="${info[i].image}"  class="addToCart font-semi-bold px-[15%] ml-[5%] py-[8px] text-white bg-green-800 rounded hover:bg-green-500" >BUY</button>
-     </div>
- </div>
-
- 
- </div>
 
 
 </div>
+
+
+
+
+
+
+
+<div class="space-x-0 sm:flex sm:w-full sm:space-x-2">
+
+
+  <div class="cartTab shadow-lg h-[500px] rounded sm:w-[49%] md:rounded-lg py-4 mb-4 md:w-[49%]">
+    <div class="h-[400px] overflow-hidden">
+      <div class="itemTitle  text-center text-[14px] px-4 mt-[30px]  h-[100px] overflow-hidden">
+        <h4 class="myTitle11">${info[++i].title}</h4>
+      </div>
+
+      <div class="itemImage mt-[40px] h-[200px] w-[90%] m-auto overflow-hidden  flex justify-center">
+        <img class="w-[auto] h-[200px] rounded-lg" src="${info[i].image}">
+      </div>
+    </div>
+    <div class="w-[70%] m-auto flex justify-between items-center mt-[10px] py-4">
+      <div class="modePrice text-gray-600"><span>&#8358;&nbsp;</span><span class="itemPrice ">${info[i].price}</span></div>
+      <i data-item-name="${info[i].title}" data-item-price="${info[i].price}"
+        data-item-image="${info[i].image}"
+        class="addToCart fa-solid fa-cart-plus cursor-pointer font-semi-bold ml-[5%] p-[5%] flex items-center justify-center  text-green-600  bg-gray-100 rounded-full hover:text-green-800"></i>
+    </div>
+  </div>
+
+
+
+  
+
+  <div class="cartTab shadow-lg h-[500px] rounded sm:w-[49%] md:rounded-lg py-4 mb-4 md:w-[49%]">
+    <div class="h-[400px] overflow-hidden">
+      <div class="itemTitle  text-center text-[14px] px-4 mt-[30px] h-[100px] overflow-hidden">
+        <h4 class="myTitle11">${info[++i].title}</h4>
+      </div>
+
+      <div class="itemImage mt-[40px] h-[200px] w-[90%] m-auto overflow-hidden  flex justify-center">
+        <img class="w-[auto] h-[200px] rounded-lg" src="${info[i].image}">
+      </div>
+    </div>
+
+    <div class="w-[70%] m-auto flex justify-between items-center mt-[10px] py-4 ">
+      <div class="modePrice text-gray-600"><span >&#8358;&nbsp;</span><span class="itemPrice">${info[i].price}</span></div>
+      <i data-item-name="${info[i].title}" data-item-price="${info[i].price}"
+        data-item-image="${info[i].image}"
+        class="addToCart fa-solid fa-cart-plus cursor-pointer font-semi-bold ml-[5%] p-[5%] flex items-center justify-center  text-green-600  bg-gray-100 rounded-full hover:text-green-800"></i>
+    </div>
+  </div>
+
+
+</div>
+
+
+</div>
+
 
 `;
   }
 
   products.innerHTML = p_values;
+
+ //Dark mode/Light mode for cart Items Tab
+
+  const mode2 = document.querySelector(".chimaMode")
+ 
+  mode2.addEventListener("click",()=>{
+    let cartTab = [...document.querySelectorAll(".cartTab")]
+    let cartTabItem = [...document.querySelectorAll(".myTitle11")]
+    let cartTabPrice = [...document.querySelectorAll(".modePrice")]
+    for(let i=0; i<cartTab.length; i++){  
+      
+      
+
+      if(cartTabPrice[i].classList.contains("text-gray-600")){
+    
+        cartTabPrice[i].classList.remove("text-gray-600")
+        cartTabPrice[i].classList.add("text-zinc-400")
+    
+        
+      }
+      else if(cartTabPrice[i].classList.contains("text-zinc-400")){
+        cartTabPrice[i].classList.remove("text-zinc-400")
+        cartTabPrice[i].classList.add("text-gray-600")
+    
+    
+      }
+
+
+
+      cartTab[i].classList.toggle("bg-zinc-800")
+      cartTabItem[i].classList.toggle("text-zinc-400")
+      console.log("charp")
+    }
+  })
+  
+
+
+
+
+
 
   addToCart = document.querySelectorAll(".addToCart");
   console.log(addToCart,"btnnnnnnns doings")
@@ -226,17 +277,24 @@ console.log(itemName,"na chima")
         let myItems1 = ``;
         for (let i = 0; i < myArray.length; i++) {
           myItems1 += `                  <tr>
-          <td class="text-left border-b-[1px] border-zinc-200  w-[32%]"><div class=" p-2 w-[100px] overflow-hidden rounded"><img src="${myArray[i].image}" alt="" class="w-[80px] mr-[10px] h-[70px] overflow-hidden "></div><div class="w-[100px] md:w-[70%]">${myArray[i].name}</div></td>
+          <td class="cartLine text-left border-b-[1px] border-zinc-200  w-[32%]"><div class=" p-2 w-[100px] overflow-hidden rounded"><img src="${myArray[i].image}" alt="" class="w-[80px] mr-[10px] h-[70px] overflow-hidden "></div><div class="w-[100px] md:w-[70%] ">${myArray[i].name}</div></td>
       
-          <td class="cartPrice00 text-left w-[32%] ">&#8358 ${myArray[i].priceIncrement}</td>
-          <td class="text-left sm: space-y-2   bg-red-100 border-b-[1px] border-red-400 w-[32%]">
+          <td class="cartPrice00 text-left w-[32%]">&#8358 ${myArray[i].priceIncrement}</td>
+          <td class="text-left sm: space-y-2    border-b-[1px] border-red-400 w-[32%]">
               <input type="number"  data-item-name="${myArray[i].name}" value  = "${myArray[i].qty}" class="myNumberClass ml-3 bg-white w-[70px] text-center rounded pt-[3px] pb-[3px] text-black mr-[12px]">
-              <button  data-item-name="${myArray[i].name}" class="removeCart bg-white text-zinc-800 font-bold pt-[5px] pb-[5px] pr-[10px] pl-[10px] rounded hover:text-red-400" >REMOVE</button>
+              
+              <i  data-item-name="${myArray[i].name}" class="removeCart fa-solid fa-trash cursor-pointer font-semi-bold ml-[5%] p-[3%]   text-red-800  bg-gray-100 rounded-full hover:text-red-600" ></i>
           </td>
       </tr>`;
         }
 
-        myItems.innerHTML = myItems1;
+myItems.innerHTML = myItems1
+
+
+     
+// dark mood
+
+
         cart.stopNegative();
         cart.getTotal();
         cart.removeItem();
@@ -255,7 +313,6 @@ console.log(itemName,"na chima")
       seeMyArray(myArray, additionFunc);
     })
   );
-
 
 
 
@@ -317,3 +374,108 @@ function seeMyArray(data, addition) {
     });
   }
 }
+
+const menuMenu = document.querySelector(".myMenuBar")
+const menuIcon = document.querySelector(".chimaBurger")
+menuIcon.addEventListener("click",()=>{
+  menuMenu.classList.toggle("hidden")
+  if(menuIcon.classList.contains("fa-bars")){
+    menuIcon.classList.remove("fa-bars")
+    menuIcon.classList.add("fa-xmark")
+  }
+  else if(menuIcon.classList.contains("fa-xmark")){
+    menuIcon.classList.remove("fa-xmark")
+    menuIcon.classList.add("fa-bars")
+  }
+})
+
+
+const body = document.querySelector("body")
+
+const menuBgMode = document.querySelector(".menuBgMode")
+const myTotal1 = document.querySelector(".myTotal1")
+const mode = document.querySelector(".chimaMode")
+const logo = document.querySelector(".menuBgMode p")
+const innerLogo = document.querySelector(".menuBgMode p span")
+const cartLine=document.querySelector(".overallCarts")
+mode.addEventListener("click",()=>{
+  body.classList.toggle("bg-zinc-900")
+  menuBgMode.classList.toggle("text-white")
+
+    myTotal1.classList.toggle("text-gray-600")
+  
+    
+    cartLine.classList.toggle("text-gray-600")
+
+  if(body.classList.contains("text-zinc-800")){
+    
+    body.classList.remove("text-zinc-800")
+    body.classList.add("text-white")
+
+    
+  }
+  else if(body.classList.contains("text-white")){
+    body.classList.remove("text-white")
+    body.classList.add("text-zinc-800")
+
+
+  }
+
+
+
+
+  if(menuBgMode.classList.contains("bg-white")){
+    
+    menuBgMode.classList.remove("bg-white")
+    menuBgMode.classList.add("bg-zinc-900")
+
+    
+  }
+  else if(menuBgMode.classList.contains("bg-zinc-900")){
+    menuBgMode.classList.remove("bg-zinc-900")
+    menuBgMode.classList.add("bg-white")
+
+
+  }
+
+
+
+
+   
+  
+
+
+  if(logo.classList.contains("text-green-600")){
+    
+    logo.classList.remove("text-green-600")
+    logo.classList.add("text-green-400")
+
+
+    innerLogo.classList.remove("text-indigo-800")
+    innerLogo.classList.add("text-green-400")
+
+  }
+  else if(logo.classList.contains("text-green-400")){
+    logo.classList.remove("text-green-400")
+    logo.classList.add("text-green-600")
+
+    innerLogo.classList.remove("text-green-400")
+    innerLogo.classList.add("text-indigo-800")
+
+
+
+
+   
+
+  
+  }
+
+
+
+
+})
+
+
+
+
+
