@@ -1,0 +1,36 @@
+This JavaScript code is an e-commerce mini project that fetches product information 
+
+from a fake store API (https://fakestoreapi.com/products). 
+
+The code uses the fetch API to make a GET request to the API and retrieve the JSON response.
+
+The code then loops through the returned product information, creates HTML elements for each product, 
+
+and appends them to a product section element on the page. The code also includes a 
+
+function to add products to a cart.
+
+Each product element has a button with a class of "addToCart," and when the button is clicked, 
+
+the product's information (name, price, and image) is added to an array called "myArray." 
+
+The total price of the items in the cart is calculated and displayed on the page.
+
+In summary, this code creates a simple e-commerce product display and cart system that fetches 
+
+data from an API and displays it on the page.
+
+
+This JavaScript code has the following basic functionalities:
+
+    1) Fetches data from an API and retrieves JSON formatted data.
+
+    2) Handles errors and logs them to the console in case of any failure during fetching.
+
+    3) Displays the fetched data as a list of products, each with a title, image, price, and add-to-cart button.
+
+    4) Keeps track of the total price of the added items in the shopping cart.
+
+    5) Adds products to the shopping cart when the add-to-cart button is clicked.
+    
+    6) The collected product data is stored in a local array called "myArray".
