@@ -261,7 +261,7 @@ console.log(itemName,"na chima")
           const stopValue = [...document.querySelectorAll(".myNumberClass")];
 
           for (let i = 0; i < stopValue.length; i++) {
-            stopValue[i].addEventListener("input", (e) => {
+            stopValue[i].addEventListener("change", (e) => {
               if (e.target.value < 1) {
                 e.target.value = 1;
               }
