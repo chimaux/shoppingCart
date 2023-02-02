@@ -1,11 +1,6 @@
 "use strict";
 
-/* const myApiData = fetch('https://fakestoreapi.com/products')
-            .then(res=>res.json())
-            .then(json=>  json)
-            .catch((err)=> console.log(err))
-
-console.log(myApiData) */
+//After fetching the products from the fake API, the cart.addItem function collects the product title,image,changing price and the fix priceand send it to myArray array
 
 let myArray = [];
 const data = () => {
@@ -14,7 +9,7 @@ const data = () => {
 
 
 
-
+//Fetch API
   fetch("https://fakestoreapi.com/products")
   .then((res) => res.json())
   .then((json) => {
@@ -29,7 +24,7 @@ let addToCart = document.querySelectorAll(".addToCart");
   const totalPrice = document.querySelector(".totalItemPrice");
   totalPrice.innerHTML = 0;
 
-
+//This line colects the fetch API data from the 
 
 function collect(info) {
   
@@ -40,6 +35,7 @@ function collect(info) {
   let p_values = ``;
   for (let i = 0; i < info.length; i++) {
     const k =1
+    //At this line the structure of the page is built using HTML and Tailwind css
     p_values += 
 ` 
 
@@ -75,7 +71,8 @@ function collect(info) {
 
 
 
-  <div class="cartTab shadow-lg h-[500px] rounded sm:w-[49%] md:rounded-lg py-4 mb-4 md:w-[49%]">
+
+  <div class="cartTab  shadow-lg h-300px md:h-[500px] rounded sm:w-[49%] md:rounded-lg py-4 mb-4 md:w-[49%]">
     <div class="h-[400px] overflow-hidden">
       <div class="itemTitle  text-center text-[14px] px-4 mt-[30px] h-[100px] overflow-hidden">
         <h4 class="myTitle11">${info[++i].title}</h4>
@@ -85,9 +82,10 @@ function collect(info) {
         <img class="w-[auto] h-[200px] rounded-lg" src="${info[i].image}">
       </div>
     </div>
-
-    <div class="w-[70%] m-auto flex justify-between items-center mt-[10px] py-4">
+  
+    <div class="w-[70%] m-auto flex justify-between items-center mt-[10px] py-4 ">
       <div class="modePrice text-gray-600"><span>&#8358;&nbsp;</span><span class="itemPrice ">${info[i].price}</span></div>
+      
       <i data-item-name="${info[i].title}" data-item-price="${info[i].price}"
         data-item-image="${info[i].image}"
         class="addToCart fa-solid fa-cart-plus cursor-pointer font-semi-bold ml-[5%] p-[5%] flex items-center justify-center  text-green-600  bg-gray-100 rounded-full hover:text-green-800"></i>
@@ -162,37 +160,35 @@ function collect(info) {
 
   products.innerHTML = p_values;
 
- //Dark mode/Light mode for cart Items Tab
+//  Dark mode/Light mode for cart Items Tab
 
   const mode2 = document.querySelector(".chimaMode")
- 
+  let cartTab = [...document.querySelectorAll(".cartTab")]
+  let cartTabItem = [...document.querySelectorAll(".myTitle11")]
+  let cartTabPrice = [...document.querySelectorAll(".modePrice")]
+  // Getting dark mood from local storage
+ if(localStorage.getItem("Mode") === "DarkMode"){
+  for(let i=0; i<cartTab.length; i++){  
+      
+   
+    cartTabPrice[i].classList.toggle("text-zinc-400")
+    cartTab[i].classList.toggle("bg-zinc-800")
+    cartTabItem[i].classList.toggle("text-zinc-400")
+
+    
+  }
+ }
+
   mode2.addEventListener("click",()=>{
-    let cartTab = [...document.querySelectorAll(".cartTab")]
-    let cartTabItem = [...document.querySelectorAll(".myTitle11")]
-    let cartTabPrice = [...document.querySelectorAll(".modePrice")]
+
     for(let i=0; i<cartTab.length; i++){  
       
-      
-
-      if(cartTabPrice[i].classList.contains("text-gray-600")){
-    
-        cartTabPrice[i].classList.remove("text-gray-600")
-        cartTabPrice[i].classList.add("text-zinc-400")
-    
-        
-      }
-      else if(cartTabPrice[i].classList.contains("text-zinc-400")){
-        cartTabPrice[i].classList.remove("text-zinc-400")
-        cartTabPrice[i].classList.add("text-gray-600")
-    
-    
-      }
-
-
-
+   
+      cartTabPrice[i].classList.toggle("text-zinc-400")
       cartTab[i].classList.toggle("bg-zinc-800")
       cartTabItem[i].classList.toggle("text-zinc-400")
-      console.log("charp")
+
+      
     }
   })
   
@@ -202,6 +198,8 @@ function collect(info) {
 
 
 
+
+//This is the add to cart button
   addToCart = document.querySelectorAll(".addToCart");
   console.log(addToCart,"btnnnnnnns doings")
 
@@ -230,7 +228,7 @@ console.log(itemName,"na chima")
           }
           renderItems();
 
-          // this.items.push({ name: name, price: price, image: image });
+       
         },
         removeItem: function () {
           const btn = [...document.querySelectorAll(".removeCart")];
@@ -273,7 +271,8 @@ console.log(itemName,"na chima")
       const renderItems = () => {
         const myItems = document.querySelector(".myItems");
 
-        //send styled values to the cart
+        // //At this line the structure of the Cart is built using HTML and Tailwind css and values are
+        //dynamically colleted and sent into the cart after hitting the add to cart button.
         
         let myItems1 = ``;
         for (let i = 0; i < myArray.length; i++) {
@@ -292,16 +291,11 @@ console.log(itemName,"na chima")
 myItems.innerHTML = myItems1
 
 
-     
-// dark mood
-
-
         cart.stopNegative();
         cart.getTotal();
         cart.removeItem();
       };
-      // const renderAgain = renderItems
-
+  
       cart.addItem(
         itemName,
         Number(itemPrice),
@@ -316,26 +310,15 @@ myItems.innerHTML = myItems1
   );
 
 
-
-
-
   
 }
-
-
-
-
-
-
-
-
 
 
 
 };
 
 data();
-
+//This line handles the purcahse button
 const myPurchase = document.querySelector(".purchaseMe");
 myPurchase.addEventListener("click", () => {
   if (myArray.length > 0) {
@@ -346,15 +329,15 @@ myPurchase.addEventListener("click", () => {
     alert("Your cart is empty");
   }
 });
-
+//This passes myArray as data and also passes cart total as addition
 function seeMyArray(data, addition) {
   const qtyValue = document.getElementsByClassName("myNumberClass");
   const cartPrice11 = [...document.getElementsByClassName("cartPrice00")];
   console.log(data, "one");
-
+//This is where i do the dynamics of the price * quantity available in the cart// The subtotal
   for (let qtyItem of qtyValue) {
     qtyItem.addEventListener("change", (e) => {
-      // alert(e.target.value);
+
       const itemNameQty = e.target.getAttribute("data-item-name");
       const itemIndexQty = data.findIndex((x) => x.name === itemNameQty);
       if (itemIndexQty !== -1) {
@@ -375,7 +358,7 @@ function seeMyArray(data, addition) {
     });
   }
 }
-
+//This is where the dynamics of the menu bar happens
 const menuMenu = document.querySelector(".myMenuBar")
 const menuIcon = document.querySelector(".chimaBurger")
 menuIcon.addEventListener("click",()=>{
@@ -390,7 +373,7 @@ menuIcon.addEventListener("click",()=>{
   }
 })
 
-
+//This is just one part where I did the toggle dark mood stuff
 const body = document.querySelector("body")
 
 const menuBgMode = document.querySelector(".menuBgMode")
@@ -399,82 +382,67 @@ const mode = document.querySelector(".chimaMode")
 const logo = document.querySelector(".menuBgMode p")
 const innerLogo = document.querySelector(".menuBgMode p span")
 const cartLine=document.querySelector(".overallCarts")
-mode.addEventListener("click",()=>{
-  body.classList.toggle("bg-zinc-900")
-  menuBgMode.classList.toggle("text-white")
-
-    myTotal1.classList.toggle("text-gray-600")
-  
-    
-    cartLine.classList.toggle("text-gray-600")
-
-  if(body.classList.contains("text-zinc-800")){
-    
-    body.classList.remove("text-zinc-800")
-    body.classList.add("text-white")
-
-    
-  }
-  else if(body.classList.contains("text-white")){
-    body.classList.remove("text-white")
-    body.classList.add("text-zinc-800")
-
-
-  }
 
 
 
 
-  if(menuBgMode.classList.contains("bg-white")){
-    
-    menuBgMode.classList.remove("bg-white")
-    menuBgMode.classList.add("bg-zinc-900")
 
-    
-  }
-  else if(menuBgMode.classList.contains("bg-zinc-900")){
-    menuBgMode.classList.remove("bg-zinc-900")
-    menuBgMode.classList.add("bg-white")
-
-
-  }
-
-
-
-
+  mode.addEventListener("click",()=>{
    
+    //toggle for the body background light/dark
+    body.classList.toggle("bg-zinc-900")
   
+    if(body.classList.contains("bg-zinc-900")){
+    //Set darkMood to local storage
+    localStorage.setItem("Mode","DarkMode")
+    }
+    else if(!body.classList.contains("bg-zinc-900")){
+      //Set lightMood to local storage
+    localStorage.setItem("Mode","LightMode")
+    }
+   //toggle for the menu bar text light/dark
+    menuBgMode.classList.toggle("text-white")
+   //toggle for the menu bar background light/dark
+     menuBgMode.classList.toggle("bg-zinc-900")
+    //dark mode toggle on body text
+    body.classList.toggle("text-white")
+    //dark mode toggle on total button
+    myTotal1.classList.toggle("text-gray-600")
+    //dark mode toggle on cart
+    cartLine.classList.toggle("text-white")
+    //dark mode logo_1st text
+    logo.classList.toggle("text-green-400")
+    //dark mode on logo_remaining text
+    innerLogo.classList.toggle("text-green-400")
 
 
-  if(logo.classList.contains("text-green-600")){
-    
-    logo.classList.remove("text-green-600")
+  })
+
+  if(localStorage.getItem("Mode") === "DarkMode"){
+ 
+       
+    //toggle for the body background light/dark
+    body.classList.add("bg-zinc-900")
+
+   //toggle for the menu bar text light/dark
+    menuBgMode.classList.add("text-white")
+   //toggle for the menu bar background light/dark
+     menuBgMode.classList.add("bg-zinc-900")
+    //dark mode toggle on body text
+    body.classList.add("text-white")
+    //dark mode toggle on total button
+    myTotal1.classList.add("text-gray-600")
+    //dark mode toggle on cart
+    cartLine.classList.add("text-white")
+    //dark mode logo_1st text
     logo.classList.add("text-green-400")
-
-
-    innerLogo.classList.remove("text-indigo-800")
+    //dark mode on logo_remaining text
     innerLogo.classList.add("text-green-400")
 
   }
-  else if(logo.classList.contains("text-green-400")){
-    logo.classList.remove("text-green-400")
-    logo.classList.add("text-green-600")
-
-    innerLogo.classList.remove("text-green-400")
-    innerLogo.classList.add("text-indigo-800")
 
 
 
-
-   
-
-  
-  }
-
-
-
-
-})
 
 
 

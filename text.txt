@@ -34,3 +34,5 @@ This JavaScript code has the following basic functionalities:
     5) Adds products to the shopping cart when the add-to-cart button is clicked.
     
     6) The collected product data is stored in a local array called "myArray".
+
+
