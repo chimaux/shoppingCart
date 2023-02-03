@@ -110,7 +110,55 @@
         <button  class="purchaseMe bg-green-700 text-white py-2 px-4 rounded hover:bg-green-500 tracking-widest">CHECK-OUT</button>
     </div>
     <div class="chimaErroMessage flex justify-center items-center py-4"></div>
-    <!-- <div class="chimaUserForm flex justify-center items-center py-4"></div> -->
+    <div class="chimaUserForm flex justify-center items-center py-4 hidden">
+        <div class="w-[70vw] lg:w-[95vw]">
+            <h3 class="py-[1.5px]">CHECKOUT DETAILS</h3>
+            <form id="paymentForm" class="w-[70vw] flex justify-center items-center p-4 border-[1px] border-gray-400 rounded lg:justify-center lg:w-[95vw]">
+         <div class = "w-[100%] lg:w-[100%] lg:flex lg:justify-center lg:items-center">
+         
+         
+         <div class="form-group w-full my-6 lg:my-2 rounded overflow-hidden">
+         
+         <input class="w-[100%] bg-zinc-200 lg:w-[90%] rounded py-2 pl-4 text-zinc-600" type="email" placeholder="Email Address" id="email-address" required />
+         
+         </div>
+         
+         <div class="form-group w-full my-6 lg:my-2 rounded overflow-hidden">
+         
+         
+         
+         <input class="w-[100%] bg-zinc-200 lg:w-[90%] rounded py-2 pl-4 text-zinc-600"  type="tel" placeholder="Amount" id="amount" required disabled />
+         
+         </div>
+         
+         <div class="form-group  w-full rounded overflow-hidden">
+         
+         
+         
+         <input class="w-[100%] bg-zinc-200 lg:w-[90%] rounded py-2 pl-4 text-zinc-600" type="text"  placeholder="First Name" id="first-name" />
+         
+         </div>
+         
+         <div class="form-group w-full my-6 lg:my-2 rounded overflow-hidden">
+         
+         <input class="w-[100%] bg-zinc-200 lg:w-[90%] rounded py-2 pl-4 text-zinc-600" type="text" placeholder="Last Name" id="last-name" />
+         
+         </div>
+         
+         <div class="form-submit my-6 lg:my-2 w-full rounded overflow-hidden">
+         
+         <button class="  w-full w-[100%] lg:w-[90%] bg-green-700 text-white py-2 px-4 rounded hover:bg-green-500 tracking-widest" type="submit" onclick="payWithPaystack()"> Pay </button>
+         
+         </div>
+         
+         
+         </div>
+          </form>
+         
+            </div>
+         
+         
+    </div>
     <!-- footer -->
     <footer class="bg-zinc-800 p-[20px] mt-[100px] ">
         <div class="w-[100%] flex justify-center items-center">
@@ -127,6 +175,9 @@
             </div>
         </div>
     </footer>
+      
+    <script src="https://js.paystack.co/v1/inline.js"></script> 
+    <script src="./js/paystack.js"></script>
     <script async src="./js/collections.js"></script>
 </body>
 </html>

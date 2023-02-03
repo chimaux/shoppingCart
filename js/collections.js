@@ -250,6 +250,13 @@ const data = () => {
                 const itemName1 = btn[i].getAttribute("data-item-name");
                 console.log(itemName1,"anu")
                 myArray = myArray.filter((x) => x.name !== itemName1);
+//This hides the user form if the cart is empty
+                 if (myArray.length == 0){
+                  const checkoutForm = document.querySelector(".chimaUserForm")
+                 
+              
+                  checkoutForm.classList.add("hidden")
+                 }
 
                 //Add color green back to add to cart icon
                 const disableMe2 = document.querySelectorAll(".addToCart");
@@ -280,7 +287,7 @@ const data = () => {
                 count += myArray[i].price * myArray[i].qty;
               }
               console.log(count);
-              totalPrice.innerHTML = count.toFixed(2);
+              totalPrice.innerHTML = count.toFixed(0);
             } else if (myArray.length === 0) {
               totalPrice.innerHTML = 0;
             }
@@ -337,7 +344,7 @@ const data = () => {
           Number(itemPrice),
           itemImage,
           1,
-          Number(itemPrice).toFixed(2)
+          Number(itemPrice).toFixed(0)
         );
         const additionFunc = cart.getTotal;
         console.log(myArray);
@@ -360,59 +367,14 @@ const myPurchase = document.querySelector(".purchaseMe");
 myPurchase.addEventListener("click", () => {
   if (myArray.length > 0) {
     const totalPrice = document.querySelector(".totalItemPrice");
-    let value = `Your total purchase is   ₦${totalPrice.textContent} \n Thanks for the purchase`;
 
-    const checkoutForm = document.querySelector(".chimaErroMessage")
-    checkoutForm.innerHTML = `
-   <div class="w-[70vw] lg:w-[95vw]">
-   <h3 class="py-[1.5px]">CHECKOUT DETAILS</h3>
-   <form id="paymentForm" class="w-[70vw] flex justify-center items-center p-4 border-[1px] border-gray-400 rounded lg:justify-center lg:w-[95vw]">
-<div class = "w-[100%] lg:w-[100%] lg:flex lg:justify-center lg:items-center">
+    const checkoutForm = document.querySelector(".chimaUserForm")
 
+    //This sets the amout value of the input to the total amount
+    const money = document.querySelector("#amount")
 
-<div class="form-group w-full my-6 lg:my-2 rounded overflow-hidden">
-
-<input class="w-[100%] bg-zinc-200 lg:w-[90%] rounded py-2 pl-4 text-zinc-600" type="email" placeholder="Email Address" id="email-address" required />
-
-</div>
-
-<div class="form-group w-full my-6 lg:my-2 rounded overflow-hidden">
-
-
-
-<input class="w-[100%] bg-zinc-200 lg:w-[90%] rounded py-2 pl-4 text-zinc-600" type="tel" placeholder="Amount" value="₦ ${totalPrice.textContent}"id="amount" required disabled />
-
-</div>
-
-<div class="form-group  w-full rounded overflow-hidden">
-
-
-
-<input class="w-[100%] bg-zinc-200 lg:w-[90%] rounded py-2 pl-4 text-zinc-600" type="text"  placeholder="First Name" id="first-name" />
-
-</div>
-
-<div class="form-group w-full my-6 lg:my-2 rounded overflow-hidden">
-
-<input class="w-[100%] bg-zinc-200 lg:w-[90%] rounded py-2 pl-4 text-zinc-600" type="text" placeholder="Last Name" id="last-name" />
-
-</div>
-
-<div class="form-submit my-6 lg:my-2 w-full rounded overflow-hidden">
-
-<button class="  w-full w-[100%] lg:w-[90%] bg-green-700 text-white py-2 px-4 rounded hover:bg-green-500 tracking-widest" type="submit" onclick="payWithPaystack()"> Pay </button>
-
-</div>
-
-
-</div>
- </form>
- 
-   </div>
-  
-  <script src="https://js.paystack.co/v1/inline.js"></script> 
-    
-    `
+    checkoutForm.classList.remove("hidden")
+    money.value =totalPrice.textContent
 
     // alert(value);
   } else if (myArray.length == 0) {
@@ -438,14 +400,21 @@ function seeMyArray(data, addition) {
       const itemIndexQty = data.findIndex((x) => x.name === itemNameQty);
       if (itemIndexQty !== -1) {
         data[itemIndexQty].qty = e.target.value;
-        cartPrice11[itemIndexQty].textContent = `₦ ${(data[itemIndexQty].price * data[itemIndexQty].qty).toFixed(2)
+        cartPrice11[itemIndexQty].textContent = `₦ ${(data[itemIndexQty].price * data[itemIndexQty].qty).toFixed(0)
           }`;
         cartPrice11[itemIndexQty].textContent1 =
-          (data[itemIndexQty].price * data[itemIndexQty].qty).toFixed(2);
+          (data[itemIndexQty].price * data[itemIndexQty].qty).toFixed(0);
         data[itemIndexQty].priceIncrement =
           cartPrice11[itemIndexQty].textContent1;
         console.log(data[itemIndexQty].price + " me");
       }
+
+      const totalPrice11 = document.querySelector(".totalItemPrice");
+      //This sets the amount value of the form to the total amount
+      const money1 = document.querySelector("#amount")
+      money1.value =totalPrice11.textContent
+
+
 
       console.log(data, "two");
 
