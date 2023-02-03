@@ -271,11 +271,21 @@ const data = () => {
 
                   
                   })
-                
+
+
+          
                   // const additionFunc1 = cart.getTotal;
                   // console.log(myArray,"pandalo");
                   // seeMyArray(myArray, additionFunc1);
                 renderItems();
+
+
+                              //Update the amount in the form
+      const totalPrice121 = document.querySelector(".totalItemPrice");
+      //This sets the amount value of the form to the total amount
+      const money12 = document.querySelector("#amount")
+      money12.value =totalPrice121.textContent
+          
               });
             }
           },
