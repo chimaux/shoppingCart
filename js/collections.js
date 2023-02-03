@@ -9,35 +9,35 @@ const data = () => {
 
 
 
-//Fetch API
+  //Fetch API
   fetch("https://fakestoreapi.com/products")
-  .then((res) => res.json())
-  .then((json) => {
-    collect(json);
-  })
-  .catch((err) => console.log(err));
+    .then((res) => res.json())
+    .then((json) => {
+      collect(json);
+    })
+    .catch((err) => console.log(err));
 
 
 
-let addToCart = document.querySelectorAll(".addToCart");
- myArray = [];
+  let addToCart = document.querySelectorAll(".addToCart");
+  myArray = [];
   const totalPrice = document.querySelector(".totalItemPrice");
   totalPrice.innerHTML = 0;
 
-//This line colects the fetch API data from the 
+  //This line collects the fetch API data from the 
 
-function collect(info) {
-  
-  const products = document.querySelector(".product_section");
-  console.log(info);
-  console.log(products);
- 
-  let p_values = ``;
-  for (let i = 0; i < info.length; i++) {
-    const k =1
-    //At this line the structure of the page is built using HTML and Tailwind css
-    p_values += 
-` 
+  function collect(info) {
+
+    const products = document.querySelector(".product_section");
+    console.log(info);
+    console.log(products);
+
+    let p_values = ``;
+    for (let i = 0; i < info.length; i++) {
+      const k = 1
+      //At this line the structure of the page is built using HTML and Tailwind css
+      p_values +=
+        ` 
 
 
 
@@ -156,42 +156,41 @@ function collect(info) {
 
 
 `;
-  }
-
-  products.innerHTML = p_values;
-
-//  Dark mode/Light mode for cart Items Tab
-
-  const mode2 = document.querySelector(".chimaMode")
-  let cartTab = [...document.querySelectorAll(".cartTab")]
-  let cartTabItem = [...document.querySelectorAll(".myTitle11")]
-  let cartTabPrice = [...document.querySelectorAll(".modePrice")]
-  // Getting dark mood from local storage
- if(localStorage.getItem("Mode") === "DarkMode"){
-  for(let i=0; i<cartTab.length; i++){  
-      
-   
-    cartTabPrice[i].classList.toggle("text-zinc-400")
-    cartTab[i].classList.toggle("bg-zinc-800")
-    cartTabItem[i].classList.toggle("text-zinc-400")
-
-    
-  }
- }
-
-  mode2.addEventListener("click",()=>{
-
-    for(let i=0; i<cartTab.length; i++){  
-      
-   
-      cartTabPrice[i].classList.toggle("text-zinc-400")
-      cartTab[i].classList.toggle("bg-zinc-800")
-      cartTabItem[i].classList.toggle("text-zinc-400")
-
-      
     }
-  })
-  
+
+    products.innerHTML = p_values;
+
+    //  Dark mode/Light mode for cart Items Tab
+
+    const mode2 = document.querySelector(".chimaMode")
+    let cartTab = [...document.querySelectorAll(".cartTab")]
+    let cartTabItem = [...document.querySelectorAll(".myTitle11")]
+    let cartTabPrice = [...document.querySelectorAll(".modePrice")]
+    // Getting dark mood from local storage
+    if (localStorage.getItem("Mode") === "DarkMode") {
+      for (let i = 0; i < cartTab.length; i++) {
+
+
+        cartTabPrice[i].classList.toggle("text-zinc-400")
+        cartTab[i].classList.toggle("bg-zinc-800")
+        cartTabItem[i].classList.toggle("text-zinc-400")
+
+
+      }
+    }
+
+    mode2.addEventListener("click", () => {
+
+      for (let i = 0; i < cartTab.length; i++) {
+
+
+        cartTabPrice[i].classList.toggle("text-zinc-400")
+        cartTab[i].classList.toggle("bg-zinc-800")
+        cartTabItem[i].classList.toggle("text-zinc-400")
+
+
+      }
+    })
 
 
 
@@ -199,119 +198,156 @@ function collect(info) {
 
 
 
-//This is the add to cart button
-  addToCart = document.querySelectorAll(".addToCart");
-  console.log(addToCart,"btnnnnnnns doings")
+
+    //This is the add to cart button
+    addToCart = document.querySelectorAll(".addToCart");
+    console.log(addToCart, "btnnnnnnns doings")
 
 
 
-  addToCart.forEach((btn) =>
-    btn.addEventListener("click", (event) => {
-      const itemName = event.target.getAttribute("data-item-name");
-      const itemPrice = event.target.getAttribute("data-item-price");
-      const itemImage = event.target.getAttribute("data-item-image");
-console.log(itemName,"na chima")
-      const cart = {
-        items: myArray,
-        addItem: function (name, price, image, qty, priceIncrement) {
-          let exist = myArray.find((x) => x.name === itemName);
-          if (!exist) {
-            this.items.push({
-              name: name,
-              price: price,
-              image: image,
-              qty: qty,
-              priceIncrement: priceIncrement,
-            });
-          } else if (exist) {
-            alert("Item already in the cart");
-          }
-          renderItems();
-
-       
-        },
-        removeItem: function () {
-          const btn = [...document.querySelectorAll(".removeCart")];
-
-          for (let i = 0; i < btn.length; i++) {
-            btn[i].addEventListener("click", () => {
-              const itemName1 = btn[i].getAttribute("data-item-name");
-              myArray = myArray.filter((x) => x.name !== itemName1);
-              console.log(myArray);
-              renderItems();
-            });
-          }
-        },
-        getTotal: function () {
-          const totalPrice = document.querySelector(".totalItemPrice");
-          let count = 0;
-          if (myArray.length !== 0) {
-            for (let i = 0; i < myArray.length; i++) {
-              count += myArray[i].price * myArray[i].qty;
-            }
-            console.log(count);
-            totalPrice.innerHTML = count.toFixed(2);
-          } else if (myArray.length === 0) {
-            totalPrice.innerHTML = 0;
-          }
-        },
-        stopNegative: function () {
-          const stopValue = [...document.querySelectorAll(".myNumberClass")];
-
-          for (let i = 0; i < stopValue.length; i++) {
-            stopValue[i].addEventListener("change", (e) => {
-              if (e.target.value < 1) {
-                e.target.value = 1;
+    addToCart.forEach((btn) =>
+      btn.addEventListener("click", (event) => {
+        const itemName = event.target.getAttribute("data-item-name");
+        const itemPrice = event.target.getAttribute("data-item-price");
+        const itemImage = event.target.getAttribute("data-item-image");
+        console.log(itemName, "na chima")
+        const cart = {
+          items: myArray,
+          addItem: function (name, price, image, qty, priceIncrement) {
+            let exist = myArray.find((x) => x.name === itemName);
+            if (!exist) {
+              this.items.push({
+                name: name,
+                price: price,
+                image: image,
+                qty: qty,
+                priceIncrement: priceIncrement,
+              });
+               //Add color red to add to cart icon
+              const disableMe = document.querySelectorAll(".addToCart");
+              disableMe.forEach((x, index) => {
+              if(name === x.getAttribute("data-item-name")){
+          
+               x.classList.add("text-red-400")
+            
+           
               }
-            });
-          }
-        },
-      };
+              
+              })
+            } else if (exist) {
+           
+            }
 
-      const renderItems = () => {
-        const myItems = document.querySelector(".myItems");
+            renderItems();
 
-        // //At this line the structure of the Cart is built using HTML and Tailwind css and values are
-        //dynamically colleted and sent into the cart after hitting the add to cart button.
-        
-        let myItems1 = ``;
-        for (let i = 0; i < myArray.length; i++) {
-          myItems1 += `                  <tr >
+
+          },
+          removeItem: function () {
+            const btn = [...document.querySelectorAll(".removeCart")];
+
+            for (let i = 0; i < btn.length; i++) {
+              btn[i].addEventListener("click", () => {
+                const itemName1 = btn[i].getAttribute("data-item-name");
+                console.log(itemName1,"anu")
+                myArray = myArray.filter((x) => x.name !== itemName1);
+
+                //Add color green back to add to cart icon
+                const disableMe2 = document.querySelectorAll(".addToCart");
+                disableMe2.forEach((x, index) => {
+                  if(itemName1 === x.getAttribute("data-item-name")){
+              
+                    x.classList.remove("text-red-400")
+                    x.classList.add("text-green-600")
+                
+               
+                  }
+
+                  
+                  })
+                
+                  // const additionFunc1 = cart.getTotal;
+                  // console.log(myArray,"pandalo");
+                  // seeMyArray(myArray, additionFunc1);
+                renderItems();
+              });
+            }
+          },
+          getTotal: function () {
+            const totalPrice = document.querySelector(".totalItemPrice");
+            let count = 0;
+            if (myArray.length !== 0) {
+              for (let i = 0; i < myArray.length; i++) {
+                count += myArray[i].price * myArray[i].qty;
+              }
+              console.log(count);
+              totalPrice.innerHTML = count.toFixed(2);
+            } else if (myArray.length === 0) {
+              totalPrice.innerHTML = 0;
+            }
+          },
+          stopNegative: function () {
+            const stopValue = [...document.querySelectorAll(".myNumberClass")];
+
+            for (let i = 0; i < stopValue.length; i++) {
+              stopValue[i].addEventListener("change", (e) => {
+                if (e.target.value < 1) {
+                  e.target.value = 1;
+                }
+              });
+            }
+          },
+        };
+
+        const renderItems = () => {
+          const myItems = document.querySelector(".myItems");
+
+          // //At this line the structure of the Cart is built using HTML and Tailwind css and values are
+          //dynamically colleted and sent into the cart after hitting the add to cart button.
+
+          let myItems1 = ``;
+          for (let i = 0; i < myArray.length; i++) {
+            myItems1 += `                  <tr >
           <td class="cartLine text-left border-b-[1px] border-zinc-200  w-[20%]"><div class=" p-2 w-[100px] overflow-hidden rounded"><img src="${myArray[i].image}" alt="" class="w-[80px] mr-[10px] h-[70px] overflow-hidden "></div><div class="w-[100px] md:w-[70%] ">${myArray[i].name.slice(0, 10) + "..."}</div></td>
       
           <td class="cartPrice00 text-left w-[35%]">&#8358 ${myArray[i].priceIncrement}</td>
           <td class="text-left sm: space-y-2    border-b-[1px] border-red-400 w-[35%]">
-              <input type="number"  data-item-name="${myArray[i].name}" value  = "${myArray[i].qty}" class="myNumberClass ml-3 bg-white w-[40px] text-center rounded pt-[3px] pb-[3px] text-black mr-[12px]">
+              <input type="number"  data-item-name="${myArray[i].name}" value  = "${myArray[i].qty}" class="myNumberClass ml-3 bg-zinc-200 w-[40px] text-center rounded pt-[3px] pb-[3px] text-black mr-[12px]">
               
-              <i  data-item-name="${myArray[i].name}" class="removeCart fa-solid fa-trash cursor-pointer font-semi-bold ml-[5%] p-[3%]   text-red-800  bg-gray-100 rounded-full hover:text-red-600" ></i>
+              <i  data-item-name="${myArray[i].name}" class="removeCart fa-solid fa-trash cursor-pointer font-semi-bold ml-[5%] p-[3%]   text-red-800  bg-gray-100 rounded-full hover:text-red-600 hover:bg-zinc-200" ></i>
           </td>
       </tr>`;
-        }
+          }
 
-myItems.innerHTML = myItems1
-
-
-        cart.stopNegative();
-        cart.getTotal();
-        cart.removeItem();
-      };
-  
-      cart.addItem(
-        itemName,
-        Number(itemPrice),
-        itemImage,
-        1,
-        Number(itemPrice).toFixed(2)
-      );
-      const additionFunc = cart.getTotal;
-      console.log(myArray);
-      seeMyArray(myArray, additionFunc);
-    })
-  );
+          myItems.innerHTML = myItems1
 
 
-  
-}
+          cart.stopNegative();
+          cart.getTotal();
+          cart.removeItem();
+
+          const additionFunc1 = cart.getTotal;
+      
+          seeMyArray(myArray, additionFunc1);
+
+
+        };
+
+        cart.addItem(
+          itemName,
+          Number(itemPrice),
+          itemImage,
+          1,
+          Number(itemPrice).toFixed(2)
+        );
+        const additionFunc = cart.getTotal;
+        console.log(myArray);
+        seeMyArray(myArray, additionFunc);
+      })
+    );
+
+
+
+  }
 
 
 
@@ -320,13 +356,73 @@ myItems.innerHTML = myItems1
 data();
 //This line handles the purcahse button
 const myPurchase = document.querySelector(".purchaseMe");
+//Checkout
 myPurchase.addEventListener("click", () => {
   if (myArray.length > 0) {
     const totalPrice = document.querySelector(".totalItemPrice");
     let value = `Your total purchase is   ₦${totalPrice.textContent} \n Thanks for the purchase`;
-    alert(value);
+
+    const checkoutForm = document.querySelector(".chimaErroMessage")
+    checkoutForm.innerHTML = `
+   <div class="w-[70vw] lg:w-[95vw]">
+   <h3 class="py-[1.5px]">CHECKOUT DETAILS</h3>
+   <form id="paymentForm" class="w-[70vw] flex justify-center items-center p-4 border-[1px] border-gray-400 rounded lg:justify-center lg:w-[95vw]">
+<div class = "w-[100%] lg:w-[100%] lg:flex lg:justify-center lg:items-center">
+
+
+<div class="form-group w-full my-6 lg:my-2 rounded overflow-hidden">
+
+<input class="w-[100%] bg-zinc-200 lg:w-[90%] rounded py-2 pl-4 text-zinc-600" type="email" placeholder="Email Address" id="email-address" required />
+
+</div>
+
+<div class="form-group w-full my-6 lg:my-2 rounded overflow-hidden">
+
+
+
+<input class="w-[100%] bg-zinc-200 lg:w-[90%] rounded py-2 pl-4 text-zinc-600" type="tel" placeholder="Amount" value="₦ ${totalPrice.textContent}"id="amount" required disabled />
+
+</div>
+
+<div class="form-group  w-full rounded overflow-hidden">
+
+
+
+<input class="w-[100%] bg-zinc-200 lg:w-[90%] rounded py-2 pl-4 text-zinc-600" type="text"  placeholder="First Name" id="first-name" />
+
+</div>
+
+<div class="form-group w-full my-6 lg:my-2 rounded overflow-hidden">
+
+<input class="w-[100%] bg-zinc-200 lg:w-[90%] rounded py-2 pl-4 text-zinc-600" type="text" placeholder="Last Name" id="last-name" />
+
+</div>
+
+<div class="form-submit my-6 lg:my-2 w-full rounded overflow-hidden">
+
+<button class="  w-full w-[100%] lg:w-[90%] bg-green-700 text-white py-2 px-4 rounded hover:bg-green-500 tracking-widest" type="submit" onclick="payWithPaystack()"> Pay </button>
+
+</div>
+
+
+</div>
+ </form>
+ 
+   </div>
+  
+  <script src="https://js.paystack.co/v1/inline.js"></script> 
+    
+    `
+
+    // alert(value);
   } else if (myArray.length == 0) {
-    alert("Your cart is empty");
+    const errorLine = document.querySelector(".chimaErroMessage")
+    errorLine.innerHTML = `<div class="w-[60vw] bg-amber-500 text-center rounded "><p class="text-center font-bold text-xl text-white py-2">Your cart is empty</p></div>`
+    setTimeout(() => {
+      const errorLine2 = document.querySelector(".chimaErroMessage")
+      errorLine2.innerHTML = ``
+
+    }, 3000)
   }
 });
 //This passes myArray as data and also passes cart total as addition
@@ -334,7 +430,7 @@ function seeMyArray(data, addition) {
   const qtyValue = document.getElementsByClassName("myNumberClass");
   const cartPrice11 = [...document.getElementsByClassName("cartPrice00")];
   console.log(data, "one");
-//This is where i do the dynamics of the price * quantity available in the cart// The subtotal
+  //This is where i do the dynamics of the price * quantity available in the cart// The subtotal
   for (let qtyItem of qtyValue) {
     qtyItem.addEventListener("change", (e) => {
 
@@ -342,13 +438,12 @@ function seeMyArray(data, addition) {
       const itemIndexQty = data.findIndex((x) => x.name === itemNameQty);
       if (itemIndexQty !== -1) {
         data[itemIndexQty].qty = e.target.value;
-        cartPrice11[itemIndexQty].textContent = `₦ ${
-          (data[itemIndexQty].price * data[itemIndexQty].qty).toFixed(2)
-        }`;
+        cartPrice11[itemIndexQty].textContent = `₦ ${(data[itemIndexQty].price * data[itemIndexQty].qty).toFixed(2)
+          }`;
         cartPrice11[itemIndexQty].textContent1 =
-          data[itemIndexQty].price * data[itemIndexQty].qty;
+          (data[itemIndexQty].price * data[itemIndexQty].qty).toFixed(2);
         data[itemIndexQty].priceIncrement =
-        cartPrice11[itemIndexQty].textContent1;
+          cartPrice11[itemIndexQty].textContent1;
         console.log(data[itemIndexQty].price + " me");
       }
 
@@ -361,13 +456,13 @@ function seeMyArray(data, addition) {
 //This is where the dynamics of the menu bar happens
 const menuMenu = document.querySelector(".myMenuBar")
 const menuIcon = document.querySelector(".chimaBurger")
-menuIcon.addEventListener("click",()=>{
+menuIcon.addEventListener("click", () => {
   menuMenu.classList.toggle("hidden")
-  if(menuIcon.classList.contains("fa-bars")){
+  if (menuIcon.classList.contains("fa-bars")) {
     menuIcon.classList.remove("fa-bars")
     menuIcon.classList.add("fa-xmark")
   }
-  else if(menuIcon.classList.contains("fa-xmark")){
+  else if (menuIcon.classList.contains("fa-xmark")) {
     menuIcon.classList.remove("fa-xmark")
     menuIcon.classList.add("fa-bars")
   }
@@ -381,65 +476,67 @@ const myTotal1 = document.querySelector(".myTotal1")
 const mode = document.querySelector(".chimaMode")
 const logo = document.querySelector(".menuBgMode p")
 const innerLogo = document.querySelector(".menuBgMode p span")
-const cartLine=document.querySelector(".overallCarts")
+const cartLine = document.querySelector(".overallCarts")
 
 
 
 
 
-  mode.addEventListener("click",()=>{
-   
-    //toggle for the body background light/dark
-    body.classList.toggle("bg-zinc-900")
-  
-    if(body.classList.contains("bg-zinc-900")){
+
+mode.addEventListener("click", () => {
+
+  //toggle for the body background light/dark
+  body.classList.toggle("bg-zinc-900")
+
+  if (body.classList.contains("bg-zinc-900")) {
     //Set darkMood to local storage
-    localStorage.setItem("Mode","DarkMode")
-    }
-    else if(!body.classList.contains("bg-zinc-900")){
-      //Set lightMood to local storage
-    localStorage.setItem("Mode","LightMode")
-    }
-   //toggle for the menu bar text light/dark
-    menuBgMode.classList.toggle("text-white")
-   //toggle for the menu bar background light/dark
-     menuBgMode.classList.toggle("bg-zinc-900")
-    //dark mode toggle on body text
-    body.classList.toggle("text-white")
-    //dark mode toggle on total button
-    myTotal1.classList.toggle("text-gray-600")
-    //dark mode toggle on cart
-    cartLine.classList.toggle("text-white")
-    //dark mode logo_1st text
-    logo.classList.toggle("text-green-400")
-    //dark mode on logo_remaining text
-    innerLogo.classList.toggle("text-green-400")
-
-
-  })
-
-  if(localStorage.getItem("Mode") === "DarkMode"){
- 
-       
-    //toggle for the body background light/dark
-    body.classList.add("bg-zinc-900")
-
-   //toggle for the menu bar text light/dark
-    menuBgMode.classList.add("text-white")
-   //toggle for the menu bar background light/dark
-     menuBgMode.classList.add("bg-zinc-900")
-    //dark mode toggle on body text
-    body.classList.add("text-white")
-    //dark mode toggle on total button
-    myTotal1.classList.add("text-gray-600")
-    //dark mode toggle on cart
-    cartLine.classList.add("text-white")
-    //dark mode logo_1st text
-    logo.classList.add("text-green-400")
-    //dark mode on logo_remaining text
-    innerLogo.classList.add("text-green-400")
-
+    localStorage.setItem("Mode", "DarkMode")
   }
+  else if (!body.classList.contains("bg-zinc-900")) {
+    //Set lightMood to local storage
+    localStorage.setItem("Mode", "LightMode")
+  }
+  //toggle for the menu bar text light/dark
+  menuBgMode.classList.toggle("text-white")
+  //toggle for the menu bar background light/dark
+  menuBgMode.classList.toggle("bg-zinc-900")
+  //dark mode toggle on body text
+  body.classList.toggle("text-white")
+  //dark mode toggle on total button
+  myTotal1.classList.toggle("text-white")
+  //dark mode toggle on cart
+  cartLine.classList.toggle("text-white")
+  //dark mode logo_1st text
+  logo.classList.toggle("text-green-400")
+  //dark mode on logo_remaining text
+  innerLogo.classList.toggle("text-green-400")
+
+
+
+})
+
+if (localStorage.getItem("Mode") === "DarkMode") {
+
+
+  //toggle for the body background light/dark
+  body.classList.add("bg-zinc-900")
+
+  //toggle for the menu bar text light/dark
+  menuBgMode.classList.add("text-white")
+  //toggle for the menu bar background light/dark
+  menuBgMode.classList.add("bg-zinc-900")
+  //dark mode toggle on body text
+  body.classList.add("text-white")
+  //dark mode toggle on total button
+  myTotal1.classList.add("text-white")
+  //dark mode toggle on cart
+  cartLine.classList.add("text-white")
+  //dark mode logo_1st text
+  logo.classList.add("text-green-400")
+  //dark mode on logo_remaining text
+  innerLogo.classList.add("text-green-400")
+
+}
 
 
 
