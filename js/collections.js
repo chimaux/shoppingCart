@@ -313,7 +313,7 @@ const data = () => {
           <td class="text-left sm: space-y-2    border-b-[1px] border-red-400 w-[35%]">
               <input type="number"  data-item-name="${myArray[i].name}" value  = "${myArray[i].qty}" class="myNumberClass ml-3 bg-zinc-200 w-[40px] text-center rounded pt-[3px] pb-[3px] text-black mr-[12px]">
               
-              <i  data-item-name="${myArray[i].name}" class="removeCart fa-solid fa-trash cursor-pointer font-semi-bold ml-[5%] p-[3%]   text-red-800  bg-gray-100 rounded-full hover:text-red-600 hover:bg-zinc-200" ></i>
+              <i  data-item-name="${myArray[i].name}" class="removeCart fa-solid fa-trash cursor-pointer font-semi-bold ml-[5%] p-[3%]   text-red-800  rounded-full hover:text-red-600 hover:bg-zinc-200" ></i>
           </td>
       </tr>`;
           }
